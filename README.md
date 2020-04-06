@@ -1,5 +1,5 @@
-# DesignPatterns
+# Design Patterns
 
-Vlad Carla Madalina
-Stefan Constantin Teodor 
-Stoica Marius Cristofor 
+Vlad Carla Madalina <br/>
+Stefan Constantin Teodor <br/>
+Stoica Marius Cristofor <br/>
