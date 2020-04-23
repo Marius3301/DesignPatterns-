@@ -30,7 +30,7 @@ namespace DesignPatternsProject.Decorator
 
         void IPizza.ToString()
         {
-         
+            Console.WriteLine("Price :" + Price + dough.price);
         }
     }
 }
