@@ -9,12 +9,12 @@ namespace DesignPatternsProject.Decorator
     {
         public QuattroStagioniPizzaDecorator(IPizza pizza):base(pizza)
         {
-            eTopping = EToppingType.EQuattroStagioni;
+            DecoretedPizza.eTopping = EToppingType.EQuattroStagioni;
             SetAccesories();
         }
         public override void SetAccesories()
         {
-            Price+=12;
+            DecoretedPizza.Price+=12;
         }
     }
 }

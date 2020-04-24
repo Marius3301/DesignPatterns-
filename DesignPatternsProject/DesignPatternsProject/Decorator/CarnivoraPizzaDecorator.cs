@@ -9,13 +9,13 @@ namespace DesignPatternsProject.Decorator
     {
         public CarnivoraPizzaDecorator(IPizza pizza):base(pizza)
         {
-            eTopping = EToppingType.ECarnivora;
+            DecoretedPizza.eTopping = EToppingType.ECarnivora;
             SetAccesories();
         }
 
         public override void SetAccesories()
         {
-            Price+=15;
+            DecoretedPizza.Price+=15;
         }
     }
 }

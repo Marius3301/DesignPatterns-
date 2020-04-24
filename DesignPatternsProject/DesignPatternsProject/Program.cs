@@ -3,6 +3,7 @@ using DesignPatternsProject.AbstractFactory;
 using DesignPatternsProject.model;
 using DesignPatternsProject.utils;
 using DesignPatternsProject.Cash;
+using DesignPatternsProject.Decorator;
 
 namespace DesignPatternsProject
 {
@@ -33,6 +34,17 @@ namespace DesignPatternsProject
 
             cashier.CashIn(0.1, EMoneyType.Coin);
             Console.WriteLine(cashier.GetTotalCache());
+
+            IPizza pizzaDec = new BasePizza();
+            pizzaDec.Assemble(new NormalDoughFactory());
+
+            pizzaDec.ToString();
+
+            IPizza carnivora = new CarnivoraPizzaDecorator(pizzaDec);
+
+            carnivora.Assemble(new CheesyDoughFactory());
+
+            carnivora.ToString();
         }
     }
 }

@@ -9,13 +9,13 @@ namespace DesignPatternsProject.Decorator
     {
         public MexicanPizzaDecorator(IPizza pizza): base(pizza)
         {
-            pizza.eTopping = EToppingType.EMexican;
+            DecoretedPizza.eTopping = EToppingType.EMexican;
             SetAccesories();
         }
 
         public override void SetAccesories()
         {
-            Price+=12;
+            DecoretedPizza.Price+=12;
         }
     }
 }
