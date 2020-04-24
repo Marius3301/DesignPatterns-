@@ -43,6 +43,7 @@ namespace DesignPatternsProject.Cash
             else
             {
                 Console.WriteLine("Nu este posibil");
+                
             }
         }
 
