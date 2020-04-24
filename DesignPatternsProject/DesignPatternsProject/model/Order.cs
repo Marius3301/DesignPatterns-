@@ -22,25 +22,27 @@ namespace DesignPatternsProject.model
             IsDelivered = false;
         }
 
-        public void UpdateState(EClientOption option)
+        public bool UpdateState(EClientOption option)
         {
             switch (option)
             {
                 case EClientOption.AddPizza:
-                    this.AddPizza();
-                    break;
+                    return AddPizza();
+
                 case EClientOption.DeletePizza:
-                    this.DeletePizza();
-                    break;
+                    return DeletePizza();
+
                 case EClientOption.SendOrder:
-                    this.SendOrder();
-                    break;
+                    return SendOrder();
+
                 case EClientOption.CheckOrderState:
-                    this.CheckOrderState();
-                    break;
+                    return CheckOrderState();
+
                 case EClientOption.CancelOrder:
-                    this.CancelOrder();
-                    break;
+                    return CancelOrder();
+
+                default:
+                    return false;
             }
         }
         public bool AddPizza()
@@ -58,9 +60,11 @@ namespace DesignPatternsProject.model
             return _orderState.SendOrder();
         }
 
-        public void CheckOrderState()
+        public bool CheckOrderState()
         {
             _orderState.CheckOrderState();
+
+            return true;
         }
 
         public bool CancelOrder()
@@ -81,7 +85,7 @@ namespace DesignPatternsProject.model
                     this._orderState = new CookingState(this);
                     break;
                 case EOrderStateType.DeliveryState:
-                    this._orderState = new EmptyOrderState(this);
+                    this._orderState = new DeliveryState(this);
                     break;
             }
         }

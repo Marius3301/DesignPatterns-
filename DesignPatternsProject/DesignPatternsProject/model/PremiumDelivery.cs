@@ -17,6 +17,20 @@ namespace DesignPatternsProject.model
             _name = name;
             _deliveryTime = Constans.PREMIUM_DELIVERY_TIME;
         }
+        public IDeliveryMan TryAssign(Order order)
+        {
+            return this;
+        }
+
+        public bool ApproveAssign(Order order)
+        {
+            return true;
+        }
+
+        public int GetMaxPriceOfOrder()
+        {
+            return int.MaxValue;
+        }
         public void Deliver(Order order)
         {
             Thread.Sleep(_deliveryTime);

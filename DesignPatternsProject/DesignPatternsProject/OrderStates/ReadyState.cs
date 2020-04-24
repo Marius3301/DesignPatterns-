@@ -14,12 +14,17 @@ namespace DesignPatternsProject.OrderStates
         }
         public override bool AddPizza()
         {
-            // TO DO : go to Pizza building menu
-            // this.order.AddPizza(newPizza);
+            var newPizza = OrderUtils.ChosePizza();
 
-            order.SetOrderState(EOrderStateType.ReadyState);
-            Console.WriteLine("Pizza was added to the order");
-            return true;
+            if (newPizza != null)
+            {
+                Console.WriteLine("Pizza was added to the order");
+
+                order.Pizzas.Add(newPizza);
+                return true;
+            }
+            else
+                return false;
         }
 
         public override bool CancelOrder()
@@ -82,7 +87,6 @@ namespace DesignPatternsProject.OrderStates
 
         public override bool SendOrder()
         {
-            // TO DO: Notify cook
             order.SetOrderState(EOrderStateType.CookingState);
             return true;
         }

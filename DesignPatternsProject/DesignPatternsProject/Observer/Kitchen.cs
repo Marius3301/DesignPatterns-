@@ -44,6 +44,7 @@ namespace DesignPatternsProject.model
         public void NotifyOrderFinish(Order order)
         {
             IDeliveryMan deliveryMan = _ordersInOven[order];
+            order.SetOrderState(EOrderStateType.DeliveryState);
 
             deliveryMan.Deliver(order);
         }
