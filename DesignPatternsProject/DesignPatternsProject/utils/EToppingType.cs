@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DesignPatternsProject.utils
 {
-    enum EToppingType
+    public enum EToppingType
     {
         EBasic,
         EMexican,

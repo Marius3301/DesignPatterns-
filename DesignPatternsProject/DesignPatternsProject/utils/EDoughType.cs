@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DesignPatternsProject.utils
 {
-    enum EDoughType
+    public enum EDoughType
     {
         ENormal,
         ECrusty,

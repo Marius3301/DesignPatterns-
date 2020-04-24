@@ -44,7 +44,7 @@ namespace DesignPatternsProject
 
             carnivora.Assemble(new CheesyDoughFactory());
 
-            carnivora.ToString();
+            Console.WriteLine(carnivora.ToString());
         }
     }
 }

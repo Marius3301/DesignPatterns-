@@ -3,18 +3,19 @@ using DesignPatternsProject.utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DesignPatternsProject.Decorator;
 
 namespace DesignPatternsProject.model
 {
     public class Order
     {
-        public List<Pizza> _pizzas;
+        public List<IPizza> _pizzas;
 
         private OrderState _orderState;
 
         public Order()
         {
-            _pizzas = new List<Pizza>();
+            _pizzas = new List<IPizza>();
             _orderState = new EmptyOrderState(this);
         }
 

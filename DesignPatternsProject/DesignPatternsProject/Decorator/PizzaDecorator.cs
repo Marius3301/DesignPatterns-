@@ -27,9 +27,9 @@ namespace DesignPatternsProject.Decorator
 
         public abstract void SetAccesories();
 
-        void IPizza.ToString()
+        public string ToString()
         {
-            DecoretedPizza.ToString();
+            return DecoretedPizza.ToString();
         }
     }
 }

@@ -5,7 +5,7 @@ using DesignPatternsProject.utils;
 
 namespace DesignPatternsProject.model
 {
-    class PizzaDough
+    public class PizzaDough
     {
         public EDoughType doughType { get; set; }
 

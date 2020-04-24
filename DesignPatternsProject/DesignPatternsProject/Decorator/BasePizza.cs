@@ -28,9 +28,9 @@ namespace DesignPatternsProject.Decorator
             Price = 0;
         }
 
-        void IPizza.ToString()
+        public string ToString()
         {
-            Console.WriteLine("Price :" + TotalPrice());
+            return "Price :" + TotalPrice();
         }
 
         private int TotalPrice()

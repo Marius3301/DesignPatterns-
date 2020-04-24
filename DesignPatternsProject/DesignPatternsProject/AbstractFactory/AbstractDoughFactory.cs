@@ -5,7 +5,7 @@ using DesignPatternsProject.model;
 
 namespace DesignPatternsProject.AbstractFactory
 {
-    abstract class AbstractDoughFactory
+    public abstract class AbstractDoughFactory
     {
         public abstract PizzaDough GetPizzaDough();
     }

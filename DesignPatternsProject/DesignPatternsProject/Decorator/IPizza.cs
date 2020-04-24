@@ -7,7 +7,7 @@ using DesignPatternsProject.AbstractFactory;
 
 namespace DesignPatternsProject.Decorator
 {
-    interface IPizza
+    public interface IPizza
     {
         public EToppingType eTopping { get; set; }
 
@@ -19,6 +19,7 @@ namespace DesignPatternsProject.Decorator
 
         public void SetAccesories();
 
-        public void ToString();
+        public string ToString();
+
     }
 }

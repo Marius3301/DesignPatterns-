@@ -6,7 +6,7 @@ using DesignPatternsProject.utils;
 
 namespace DesignPatternsProject.AbstractFactory
 {
-    class CheesyDoughFactory : AbstractDoughFactory
+    public class CheesyDoughFactory : AbstractDoughFactory
     {
         public override PizzaDough GetPizzaDough()
         {
