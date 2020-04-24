@@ -21,5 +21,7 @@ namespace DesignPatternsProject.Decorator
 
         public string ToString();
 
+        public int TotalPrice();
+
     }
 }

@@ -31,5 +31,12 @@ namespace DesignPatternsProject.Decorator
         {
             return DecoretedPizza.ToString();
         }
+
+       
+
+        public int TotalPrice()
+        {
+            return DecoretedPizza.Price + DecoretedPizza.dough.price;
+        }
     }
 }

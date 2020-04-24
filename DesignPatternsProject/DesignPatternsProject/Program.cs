@@ -49,6 +49,10 @@ namespace DesignPatternsProject
             IPizza pizza3 = OrderUtils.ChosePizza();
 
             Console.WriteLine(pizza3.ToString());
+            var calc = new CalculationInvoker();
+            calc.Compute( 89.03M);
+
+
         }
     }
 }

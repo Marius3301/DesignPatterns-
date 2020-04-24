@@ -33,7 +33,7 @@ namespace DesignPatternsProject.Decorator
             return "ToppingTipe : "+eTopping+" \n Dough Type : "+dough.doughType + "\n Price :" + TotalPrice();
         }
 
-        private int TotalPrice()
+        public int TotalPrice()
         {
             return Price + dough.price;
         }
