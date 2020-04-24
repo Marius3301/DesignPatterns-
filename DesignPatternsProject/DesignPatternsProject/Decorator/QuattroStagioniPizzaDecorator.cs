@@ -14,7 +14,7 @@ namespace DesignPatternsProject.Decorator
         }
         public override void SetAccesories()
         {
-            DecoretedPizza.Price+=12;
+            DecoretedPizza.Price+=20;
         }
     }
 }

@@ -30,7 +30,7 @@ namespace DesignPatternsProject.Decorator
 
         public string ToString()
         {
-            return "Price :" + TotalPrice();
+            return "ToppingTipe : "+eTopping+" \n Dough Type : "+dough.doughType + "\n Price :" + TotalPrice();
         }
 
         private int TotalPrice()

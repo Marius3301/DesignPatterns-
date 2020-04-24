@@ -45,6 +45,10 @@ namespace DesignPatternsProject
             carnivora.Assemble(new CheesyDoughFactory());
 
             Console.WriteLine(carnivora.ToString());
+
+            IPizza pizza3 = OrderUtils.ChosePizza();
+
+            Console.WriteLine(pizza3.ToString());
         }
     }
 }
