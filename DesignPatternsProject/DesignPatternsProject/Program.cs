@@ -14,7 +14,7 @@ namespace DesignPatternsProject
             PizzaDough pizza = null;
             
 
-            AbstractDoughFactory abstractFactory = new NormalDoughFactory();
+            DoughFactory abstractFactory = new NormalDoughFactory();
 
             pizza = abstractFactory.GetPizzaDough();
 

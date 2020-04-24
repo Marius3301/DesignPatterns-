@@ -5,15 +5,14 @@ using DesignPatternsProject.utils;
 
 namespace DesignPatternsProject.model
 {
-    public class PizzaDough
+    public abstract class PizzaDough
     {
-        public EDoughType doughType { get; set; }
+        public abstract EDoughType doughType { get; set; }
 
         public int price { get; set; }
 
-        public PizzaDough(EDoughType type, int price)
+        public PizzaDough(int price)
         {
-            doughType = type;
             this.price = price;
         }
     }

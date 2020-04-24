@@ -20,7 +20,7 @@ namespace DesignPatternsProject.Decorator
             DecoretedPizza = pizza;
         }
 
-        public void Assemble(AbstractDoughFactory abstractDoughFactory)
+        public void Assemble(DoughFactory abstractDoughFactory)
         {
             DecoretedPizza.Assemble(abstractDoughFactory);
         }

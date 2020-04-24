@@ -18,7 +18,7 @@ namespace DesignPatternsProject.Decorator
             eTopping = EToppingType.EBasic;
             SetAccesories();
         }
-        public void Assemble(AbstractDoughFactory abstractDoughFactory)
+        public void Assemble(DoughFactory abstractDoughFactory)
         {
             dough= abstractDoughFactory.GetPizzaDough();
         }

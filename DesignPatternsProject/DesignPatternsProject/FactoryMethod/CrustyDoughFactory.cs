@@ -6,11 +6,11 @@ using DesignPatternsProject.utils;
 
 namespace DesignPatternsProject.AbstractFactory
 {
-    public class CrustyDoughFactory : AbstractDoughFactory
+    public class CrustyDoughFactory : DoughFactory
     {
         public override PizzaDough GetPizzaDough()
         {
-            return new PizzaDough(EDoughType.ECrusty, Constans.CRUSTY_DOUGH_PRICE);
+            return new  CrustyDough(EDoughType.ECrusty, Constans.CRUSTY_DOUGH_PRICE);
         }
     }
 }

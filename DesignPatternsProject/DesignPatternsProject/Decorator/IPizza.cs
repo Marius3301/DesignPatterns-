@@ -15,7 +15,7 @@ namespace DesignPatternsProject.Decorator
 
         public PizzaDough dough { get; set; }
 
-        public void Assemble(AbstractDoughFactory abstractDoughFactory);
+        public void Assemble(DoughFactory abstractDoughFactory);
 
         public void SetAccesories();
 
