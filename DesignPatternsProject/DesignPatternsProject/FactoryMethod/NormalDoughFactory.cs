@@ -10,7 +10,7 @@ namespace DesignPatternsProject.AbstractFactory
     {
         public override PizzaDough GetPizzaDough()
         {
-            return new NormalDough(EDoughType.ENormal, Constans.NORMAL_DOUGH_PRICE);
+            return new NormalDough( Constans.NORMAL_DOUGH_PRICE);
         }
     }
 }

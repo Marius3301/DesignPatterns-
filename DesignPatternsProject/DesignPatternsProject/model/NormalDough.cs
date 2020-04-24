@@ -7,12 +7,12 @@ namespace DesignPatternsProject.model
 {
     public class NormalDough : PizzaDough
     {
-        public override EDoughType doughType { get ; set ; }
+        public override EDoughType doughType { get => EDoughType.ENormal ; }
 
-        public NormalDough(EDoughType type , int price)
+        public NormalDough(int price)
             :base(price)
         {
-            doughType = type;
+            
         }
     }
 }

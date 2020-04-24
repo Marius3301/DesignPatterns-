@@ -7,12 +7,12 @@ namespace DesignPatternsProject.model
 {
     public class ChessyDough : PizzaDough
     {
-        public override EDoughType doughType { get ; set ; }
+        public override EDoughType doughType { get => EDoughType.ECheesy; }
 
-        public ChessyDough(EDoughType type,int price):
+        public ChessyDough(int price):
             base(price)
         {
-            doughType = type;
+            
         }
     }
 }

@@ -7,7 +7,7 @@ namespace DesignPatternsProject.model
 {
     public abstract class PizzaDough
     {
-        public abstract EDoughType doughType { get; set; }
+        public abstract EDoughType doughType { get; }
 
         public int price { get; set; }
 
