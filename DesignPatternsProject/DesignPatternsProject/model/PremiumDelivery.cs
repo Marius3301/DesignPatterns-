@@ -35,7 +35,7 @@ namespace DesignPatternsProject.model
         {
             Thread.Sleep(_deliveryTime);
 
-            Console.WriteLine("Your order has been delivered, press any key to continue");
+            Console.WriteLine("Your order has been delivered by premium delivery, press any key to continue");
             order.IsDelivered = true;
         }
     }

@@ -86,7 +86,7 @@ namespace DesignPatternsProject.OrderStates
         }
 
         public override bool SendOrder()
-        {
+        {            
             order.SetOrderState(EOrderStateType.CookingState);
             return true;
         }

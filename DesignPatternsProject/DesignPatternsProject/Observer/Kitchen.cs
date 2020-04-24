@@ -21,6 +21,8 @@ namespace DesignPatternsProject.model
             if (_ordersInOven.ContainsKey(order))
                 return false;
 
+            Console.WriteLine("Order was sent to the kitchen");
+
             _ordersInOven.Add(order, deliveryMan);
             return true;
         }
@@ -34,7 +36,7 @@ namespace DesignPatternsProject.model
         }
 
         public void Cook(Order order)
-        {         
+        {
             Thread.Sleep(Constans.COOKING_TIME);
 
             if (_ordersInOven.ContainsKey(order))

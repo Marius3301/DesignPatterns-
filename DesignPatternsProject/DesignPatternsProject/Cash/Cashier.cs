@@ -17,8 +17,7 @@ namespace DesignPatternsProject.Cash
             CashRegister obj = null;
 
             switch (type)
-            {
-                
+            {            
                 case EMoneyType.Coin:
                     obj = CoinMoney;
                     break;

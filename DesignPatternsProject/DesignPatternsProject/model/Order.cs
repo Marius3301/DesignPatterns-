@@ -93,15 +93,17 @@ namespace DesignPatternsProject.model
         public void ClearOrder()
         {
             Pizzas.Clear();
+            IsDelivered = false;
+            SetOrderState(EOrderStateType.EmptyOrderState);
         }
 
-        public double GetTotalPrice()
+        public decimal GetTotalPrice()
         {
-            double result = 0;
-            /*
-            foreach(var pizza in _pizza) 
-                result += pizza.GetPrice();
-             */
+            decimal result = 0;
+            
+            foreach(var pizza in Pizzas) 
+                result += pizza.TotalPrice();
+             
             return result;
         }
     }

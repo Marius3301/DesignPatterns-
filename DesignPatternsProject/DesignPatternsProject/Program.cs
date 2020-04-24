@@ -4,55 +4,90 @@ using DesignPatternsProject.model;
 using DesignPatternsProject.utils;
 using DesignPatternsProject.Cash;
 using DesignPatternsProject.Decorator;
+using System.Threading;
+using DesignPatternsProject.Calculation;
 
 namespace DesignPatternsProject
 {
-    class Program
+    class Programm
     {
+
         static void Main(string[] args)
         {
-            PizzaDough pizza = null;
-            
+            Kitchen kitchen = new Kitchen();
+            CashierInvoker cashierInvoker = new CashierInvoker();
+            FillRegister(cashierInvoker);
 
-            DoughFactory abstractFactory = new NormalDoughFactory();
+            PremiumDelivery premiumDelivery = new PremiumDelivery("Premium delivery");
+            FastDelivery fastDelivery = new FastDelivery("Fast delivery", premiumDelivery);
+            RegularDelivery regularDelivery = new RegularDelivery("Regular delivery", fastDelivery);
 
-            pizza = abstractFactory.GetPizzaDough();
+            Order order = new Order();
+            Thread kitchenThread;
 
-            Console.WriteLine(pizza.doughType + " " + pizza.price);
+            bool shouldExit = false;
+            int choice = -1;
 
-            abstractFactory = new CheesyDoughFactory();
+            while (!shouldExit)
+            {
+                Console.WriteLine("Choose an option:");
+                Console.Write("1. Add Pizza \n2. Delete Pizza \n3. Send Order \n" +
+                    "4. Check Order State \n5. Cancel Order \n0. Exit  ");
 
-            pizza = abstractFactory.GetPizzaDough();
+                Console.WriteLine();
+                choice = int.Parse(Console.ReadLine());
 
-            Console.WriteLine(pizza.doughType + " "+pizza.price);
-        
-            Cashier cashier = new Cashier();
-            cashier.CashIn(10, EMoneyType.Paper);
-            cashier.CashOut(10, EMoneyType.Paper);
+                if (!order.IsDelivered)
+                {
+                    switch (choice)
+                    {
+                        case 1:
+                            order.UpdateState(EClientOption.AddPizza);
+                            break;
+                        case 2:
+                            order.UpdateState(EClientOption.DeletePizza);
+                            break;
+                        case 3:
+                            if (order.UpdateState(EClientOption.SendOrder))
+                            {
+                                if (kitchen.PlaceInOven(order, regularDelivery.TryAssign(order)))
+                                {
+                                    kitchenThread = new Thread(() => kitchen.Cook(order));
+                                    kitchenThread.Start();
+                                }
+                            }
+                            break;
+                        case 4:
+                            order.UpdateState(EClientOption.CheckOrderState);
+                            break;
+                        case 5:
+                            order.UpdateState(EClientOption.CancelOrder);
+                            break;
+                        case 0:
+                            shouldExit = true;
+                            break;
+                        default:
+                            Console.WriteLine("Please insert a valid choice");
+                            break;
+                    }
+                }
+                else
+                {
+                    OrderUtils.PayForOrderMenu(cashierInvoker, order);
+                    if (OrderUtils.PlaceAnotherOrderPrompt())
+                        order.ClearOrder();
+                    else
+                        shouldExit = true;
+                }
 
-            cashier.CashOut(5, EMoneyType.Paper);
+                Console.WriteLine();
+            }
 
-            cashier.CashIn(0.1m, EMoneyType.Coin);
-            Console.WriteLine(cashier.GetTotalCache());
+        }
 
-            IPizza pizzaDec = new BasePizza();
-            pizzaDec.Assemble(new NormalDoughFactory());
-
-            pizzaDec.ToString();
-
-            IPizza carnivora = new CarnivoraPizzaDecorator(pizzaDec);
-
-            carnivora.Assemble(new CheesyDoughFactory());
-
-            Console.WriteLine(carnivora.ToString());
-
-            IPizza pizza3 = OrderUtils.ChosePizza();
-
-            Console.WriteLine(pizza3.ToString());
-            var calc = new CalculationInvoker();
-            calc.Compute( 89.03M);
-
-
+        static void FillRegister(CashierInvoker cashierInvoker)
+        {
+            cashierInvoker.Compute(ECommandType.Add, Constans.STARTING_REGISTER_MONEY,false);
         }
     }
 }

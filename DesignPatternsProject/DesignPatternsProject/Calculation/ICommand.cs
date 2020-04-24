@@ -1,14 +1,16 @@
-﻿using System;
+﻿using DesignPatternsProject.utils;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DesignPatternsProject
+namespace DesignPatternsProject.Calculation
 {
     public interface ICommand
     {
-       // char Action { get; set; }
-
+        ECommandType CommandType { get; set; }
         decimal Operand { get; set; }
+
+        bool DisplaySteps { get; set; }
 
         void Execute();
 
