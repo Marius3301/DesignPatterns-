@@ -45,7 +45,7 @@ namespace DesignPatternsProject.OrderStates
         public override void CheckOrderState()
         {
             Console.WriteLine("Here are your pizzas");
-            foreach (var pizza in this.order._pizzas)
+            foreach (var pizza in this.order.Pizzas)
             {
                 Console.WriteLine(pizza.ToString());
             }
@@ -59,8 +59,8 @@ namespace DesignPatternsProject.OrderStates
             while (input != 0 && !validInput)
             {
                 Console.WriteLine("Which pizza do you want to remove from your order:");
-                for(int index = 0; index < order._pizzas.Count; index++)
-                    Console.WriteLine($"{index + 1}. {order._pizzas[index].ToString()}");
+                for(int index = 0; index < order.Pizzas.Count; index++)
+                    Console.WriteLine($"{index + 1}. {order.Pizzas[index].ToString()}");
 
                 input = int.Parse(Console.ReadLine());
                 validInput = IsValidInput(input);
@@ -68,10 +68,10 @@ namespace DesignPatternsProject.OrderStates
 
             if(validInput)
             {
-                order._pizzas.RemoveAt(input - 1);
+                order.Pizzas.RemoveAt(input - 1);
                 Console.WriteLine("Pizza succesfully removed from your order");
 
-                if (order._pizzas.Count == 0)
+                if (order.Pizzas.Count == 0)
                     order.SetOrderState(EOrderStateType.EmptyOrderState);
 
                 return true;
@@ -89,7 +89,7 @@ namespace DesignPatternsProject.OrderStates
 
         private bool IsValidInput(int input)
         {
-            if (input > 0 && input <= order._pizzas.Count)
+            if (input > 0 && input <= order.Pizzas.Count)
                 return true;
 
             return false;

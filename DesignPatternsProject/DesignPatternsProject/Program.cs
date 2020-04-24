@@ -32,7 +32,7 @@ namespace DesignPatternsProject
 
             cashier.CashOut(5, EMoneyType.Paper);
 
-            cashier.CashIn(0.1, EMoneyType.Coin);
+            cashier.CashIn(0.1m, EMoneyType.Coin);
             Console.WriteLine(cashier.GetTotalCache());
 
             IPizza pizzaDec = new BasePizza();

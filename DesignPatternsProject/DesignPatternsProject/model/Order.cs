@@ -9,14 +9,17 @@ namespace DesignPatternsProject.model
 {
     public class Order
     {
-        public List<IPizza> _pizzas;
-
         private OrderState _orderState;
+
+        public List<IPizza> Pizzas { get; set; }
+        public bool IsDelivered { get; set; }
 
         public Order()
         {
-            _pizzas = new List<IPizza>();
             _orderState = new EmptyOrderState(this);
+
+            Pizzas = new List<IPizza>();
+            IsDelivered = false;
         }
 
         public void UpdateState(EClientOption option)
@@ -85,7 +88,7 @@ namespace DesignPatternsProject.model
 
         public void ClearOrder()
         {
-            _pizzas.Clear();
+            Pizzas.Clear();
         }
 
         public double GetTotalPrice()
