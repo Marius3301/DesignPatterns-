@@ -12,9 +12,12 @@ namespace DesignPatternsProject.model
             return EMoneyType.Coin;
         }
 
-        public static bool IsSharedValue(double value)
+        public static bool IsSharedValue(decimal value)
         {
-            return ((value == 0.01) || (value == 0.05) || (value == 0.1) || (value == 0.5));
+            return (value.CompareTo(0.01m) == 0 ||
+                value.CompareTo(0.05m) == 0 ||
+                value.CompareTo(0.1m) == 0 ||
+                value.CompareTo(0.5m) == 0);
         }
 
     }

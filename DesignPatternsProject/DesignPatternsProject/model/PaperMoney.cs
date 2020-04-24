@@ -12,7 +12,7 @@ namespace DesignPatternsProject.model
             return EMoneyType.Paper;
         }
 
-        public static bool IsSharedValue(double value)
+        public static bool IsSharedValue(decimal value)
         {
             return ((value == 1) || (value == 5) || (value == 10) || (value == 50) || (value == 100) || (value == 500));
         }

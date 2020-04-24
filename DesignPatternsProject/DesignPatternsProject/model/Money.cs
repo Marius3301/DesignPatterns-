@@ -7,7 +7,7 @@ namespace DesignPatternsProject.model
 {
     public abstract class  Money
     {
-        public double TotalValue { get; set; } = 0;
+        public decimal TotalValue { get; set; } = 0;
         public abstract EMoneyType GetEmoney();
     }
 }

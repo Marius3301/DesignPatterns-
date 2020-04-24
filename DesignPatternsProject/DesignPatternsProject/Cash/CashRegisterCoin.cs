@@ -13,7 +13,7 @@ namespace DesignPatternsProject.Cash
             return new CoinMoney();
         }
 
-        public override bool IsSharedValue(double value)
+        public override bool IsSharedValue(decimal value)
         {
             return CoinMoney.IsSharedValue(value);
         }

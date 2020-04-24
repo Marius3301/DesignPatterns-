@@ -7,14 +7,14 @@ namespace DesignPatternsProject.Cash
 {
     public abstract class CashRegister
     {
-        public Dictionary<double, Money> sharedMoneyMap { get; set; }
+        public Dictionary<decimal, Money> sharedMoneyMap { get; set; }
 
         public CashRegister()
         {
-            sharedMoneyMap = new Dictionary<double, Money>();
+            sharedMoneyMap = new Dictionary<decimal, Money>();
         }
 
-        protected Money Lookup(double value)
+        protected Money Lookup(decimal value)
         {
             if (IsSharedValue(value))
             {
@@ -27,13 +27,13 @@ namespace DesignPatternsProject.Cash
             
             return null; 
         }
-        public void CashIn(double sum)
+        public void CashIn(decimal sum)
         {
             Money money = Lookup(sum);
             money.TotalValue += sum;
         }
 
-        public void CashOut(double sum)
+        public void CashOut(decimal sum)
         {
             Money money = Lookup(sum);
             if (money.TotalValue >= sum)
@@ -46,9 +46,9 @@ namespace DesignPatternsProject.Cash
             }
         }
 
-        public double GetTotalCache()
+        public decimal GetTotalCache()
         {
-            double sum = 0;
+            decimal sum = 0;
             foreach (var pair in sharedMoneyMap)
             {
                 sum += pair.Value.TotalValue;
@@ -59,7 +59,7 @@ namespace DesignPatternsProject.Cash
 
         public abstract Money CreateNewMoney();
 
-        public abstract bool IsSharedValue(double value);
+        public abstract bool IsSharedValue(decimal value);
     }
 }
 

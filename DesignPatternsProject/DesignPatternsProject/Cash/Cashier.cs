@@ -30,17 +30,17 @@ namespace DesignPatternsProject.Cash
             return obj;
         }
 
-        public void CashIn(double value, EMoneyType type)
+        public void CashIn(decimal value, EMoneyType type)
         {
             GetCashRegister(type).CashIn(value);
         }
 
-        public void CashOut(double value, EMoneyType type)
+        public void CashOut(decimal value, EMoneyType type)
         {
             GetCashRegister(type).CashOut(value);
         }
 
-        public double GetTotalCache()
+        public decimal GetTotalCache()
         {
             return CoinMoney.GetTotalCache() + PaperMoney.GetTotalCache();
         }

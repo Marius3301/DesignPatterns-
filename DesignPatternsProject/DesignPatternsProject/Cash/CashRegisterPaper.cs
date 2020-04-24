@@ -12,7 +12,7 @@ namespace DesignPatternsProject.Cash
             return new PaperMoney();
         }
 
-        public override bool IsSharedValue(double value)
+        public override bool IsSharedValue(decimal value)
         {
             return PaperMoney.IsSharedValue(value);
         }
