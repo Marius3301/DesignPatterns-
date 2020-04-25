@@ -30,8 +30,8 @@ namespace DesignPatternsProject.Calculation
                     TakeMoney(CoinMoneyArr, EMoneyType.Coin, ref transactionValue);
                     break;
                 case ECommandType.Substract:
-                    GiveMoney(PaperMoneyArr, EMoneyType.Paper, ref transactionValue);
-                    GiveMoney(CoinMoneyArr, EMoneyType.Coin, ref transactionValue);
+                    GiveMoney(PaperMoneyArr, EMoneyType.Paper, ref transactionValue,true);
+                    GiveMoney(CoinMoneyArr, EMoneyType.Coin, ref transactionValue, false);
                     break;
                 default:
                     break;
@@ -49,24 +49,38 @@ namespace DesignPatternsProject.Calculation
                     value -= moneyValue;
                     cashier.CashIn(moneyValue, eMoneyType);
                     if(DisplaySteps)
-                        Console.WriteLine($"s a facut cash in pe suma de {moneyValue} de tip {eMoneyType}\n");
+                        Console.WriteLine($"Casher taked  {moneyValue} of  {eMoneyType}\n");
                 }
             }
         }
 
-        public void GiveMoney(decimal[] array, EMoneyType eMoneyType, ref decimal value)
+        public void GiveMoney(decimal[] array, EMoneyType eMoneyType, ref decimal value, bool isPaper)
         {
+            decimal voucher = 0;
             for (int i = 0; i < array.Length; i++)
             {
                 var moneyValue = array[i];
-                if (moneyValue <= value)
+                while(moneyValue <= value)
                 {
-                    cashier.CashOut(moneyValue, eMoneyType);
-                    value -= moneyValue;
-                    if(DisplaySteps)
-                        Console.WriteLine($"s a facut cash out pe suma de {moneyValue} de tip {eMoneyType}\n");
+                    try
+                    {
+                        cashier.CashOut(moneyValue, eMoneyType);
+
+                        if (DisplaySteps)
+
+                            Console.WriteLine($"Cashier give {moneyValue} de tip {eMoneyType}\n");
+                    }
+                    catch (Exception)
+                    {
+                        voucher += moneyValue;
+                    }
+
+                    value = value - moneyValue;
                 }
             }
+            if(isPaper==true)
+                Console.WriteLine($" Congrats! You recived a voucher. The total of the voucher is: {voucher}\n");
+
         }
     }
 }

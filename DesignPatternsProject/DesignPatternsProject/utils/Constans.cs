@@ -10,7 +10,7 @@ namespace DesignPatternsProject.utils
         public const int NORMAL_DOUGH_PRICE = 10;
         public const int CHEESY_DOUGH_PRICE = 15;
 
-        public const decimal STARTING_REGISTER_MONEY = 999.99m;
+        public const decimal STARTING_REGISTER_MONEY = 999.99M;
 
         public const int MAX_PRICE_REGULAR_DELIVERY = 50;
         public const int MAX_PRICE_FAST_DELIVERY = 100;

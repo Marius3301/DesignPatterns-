@@ -8,10 +8,13 @@ namespace DesignPatternsProject.Cash
     public abstract class CashRegister
     {
         public Dictionary<decimal, Money> sharedMoneyMap { get; set; }
+        //public decimal voucher { get; set; }
+        //public Dictionary<decimal, Money> voucher {get; set;}
 
         public CashRegister()
         {
             sharedMoneyMap = new Dictionary<decimal, Money>();
+           // voucher = 0;
         }
 
         protected Money Lookup(decimal value)
@@ -21,8 +24,9 @@ namespace DesignPatternsProject.Cash
                 if (!sharedMoneyMap.ContainsKey(value))
                 {
                     sharedMoneyMap.Add(value, CreateNewMoney());
+                    
                 }
-                return sharedMoneyMap[value];
+              return sharedMoneyMap[value];
             }
             
             return null; 
@@ -42,8 +46,9 @@ namespace DesignPatternsProject.Cash
             }
             else
             {
-                Console.WriteLine("Nu este posibil");
-                
+                //voucher += sum;
+                //Console.WriteLine($"{sum} was added in a voucher. total sum of the voucher is {voucher}");
+                throw new Exception(); 
             }
         }
 

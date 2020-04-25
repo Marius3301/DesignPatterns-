@@ -10,6 +10,7 @@ namespace DesignPatternsProject.Cash
         public CashRegisterCoin CoinMoney { get; set; } = new CashRegisterCoin();
 
         public CashRegisterPaper PaperMoney { get; set; } = new CashRegisterPaper();
+        public decimal voucher { get; set; }
 
 
         private CashRegister GetCashRegister(EMoneyType type)

@@ -68,6 +68,7 @@ namespace DesignPatternsProject.utils
             var price = order.GetTotalPrice();
             Console.WriteLine($"Your order price:{price}");
             Console.WriteLine("Pay exact sum? (y/n)");
+            
             string input = Console.ReadLine();
 
             if (input.Equals("y"))
@@ -84,7 +85,7 @@ namespace DesignPatternsProject.utils
 
                 decimal change = inputSum - price;
 
-                cashierInvoker.Compute(ECommandType.Add, price);
+                cashierInvoker.Compute(ECommandType.Add, inputSum);
                 cashierInvoker.Compute(ECommandType.Substract, change);
             }
 
