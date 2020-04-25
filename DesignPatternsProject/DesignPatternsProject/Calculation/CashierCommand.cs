@@ -49,7 +49,7 @@ namespace DesignPatternsProject.Calculation
                     value -= moneyValue;
                     cashier.CashIn(moneyValue, eMoneyType);
                     if(DisplaySteps)
-                        Console.WriteLine($"Casher taked  {moneyValue} of  {eMoneyType}\n");
+                        Console.WriteLine($"Cashier took  {moneyValue} of  {eMoneyType}\n");
                 }
             }
         }

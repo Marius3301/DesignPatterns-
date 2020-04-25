@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace DesignPatternsProject.model
 {
-    public class PremiumDelivery : IDeliveryMan
+    public class PremiumDelivery : DeliveryMan
     {
         string _name;
         int _deliveryTime;
@@ -16,22 +16,23 @@ namespace DesignPatternsProject.model
         {
             _name = name;
             _deliveryTime = Constans.PREMIUM_DELIVERY_TIME;
+            _superiorDelivery = null;
         }
-        public IDeliveryMan TryAssign(Order order)
+        public override IDeliveryMan TryAssign(Order order)
         {
             return this;
         }
 
-        public bool ApproveAssign(Order order)
+        public override bool ApproveAssign(Order order)
         {
             return true;
         }
 
-        public int GetMaxPriceOfOrder()
+        public override int GetMaxPriceOfOrder()
         {
             return int.MaxValue;
         }
-        public void Deliver(Order order)
+        public override void Deliver(Order order)
         {
             Thread.Sleep(_deliveryTime);
 

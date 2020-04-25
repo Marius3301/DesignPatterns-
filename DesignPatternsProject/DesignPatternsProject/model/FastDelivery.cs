@@ -7,20 +7,18 @@ using System.Threading;
 
 namespace DesignPatternsProject.model
 {
-    public class FastDelivery : IDeliveryMan
+    public class FastDelivery : DeliveryMan
     {
         string _name;
         int _deliveryTime;
-
-        IDeliveryMan _superiorDelivery;
-        public FastDelivery(string name, IDeliveryMan superiorDelivery)
+        public FastDelivery(string name, DeliveryMan superiorDelivery)
         {
             _name = name;
             _deliveryTime = Constans.REGULAR_DELIVERY_TIME;
             _superiorDelivery = superiorDelivery;
         }
 
-        public IDeliveryMan TryAssign(Order order)
+        public override IDeliveryMan TryAssign(Order order)
         {
             if (ApproveAssign(order))
                 return this;
@@ -28,7 +26,7 @@ namespace DesignPatternsProject.model
             return _superiorDelivery.TryAssign(order);
         }
 
-        public bool ApproveAssign(Order order)
+        public override bool ApproveAssign(Order order)
         {
             if (order.GetTotalPrice() > GetMaxPriceOfOrder())
                 return false;
@@ -36,11 +34,11 @@ namespace DesignPatternsProject.model
             return true;
         }
 
-        public int GetMaxPriceOfOrder()
+        public override int GetMaxPriceOfOrder()
         {
             return Constans.MAX_PRICE_FAST_DELIVERY;
         }
-        public void Deliver(Order order)
+        public override void Deliver(Order order)
         {
             Thread.Sleep(_deliveryTime);
 

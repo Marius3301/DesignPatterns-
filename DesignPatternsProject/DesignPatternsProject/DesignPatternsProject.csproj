@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="NewCalculation\" />
+    <Compile Remove="NewCalculation\**" />
+    <EmbeddedResource Remove="NewCalculation\**" />
+    <None Remove="NewCalculation\**" />
   </ItemGroup>
 
 </Project>
