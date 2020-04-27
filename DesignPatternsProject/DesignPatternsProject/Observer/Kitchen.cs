@@ -40,7 +40,10 @@ namespace DesignPatternsProject.model
             Thread.Sleep(Constans.COOKING_TIME);
 
             if (_ordersInOven.ContainsKey(order))
+            {
                 NotifyOrderFinish(order);
+                _ordersInOven.Remove(order);
+            }
         }
 
         public void NotifyOrderFinish(Order order)

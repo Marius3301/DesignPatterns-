@@ -61,7 +61,8 @@ namespace DesignPatternsProject
                             order.UpdateState(EClientOption.CheckOrderState);
                             break;
                         case 5:
-                            order.UpdateState(EClientOption.CancelOrder);
+                            if (order.UpdateState(EClientOption.CancelOrder))
+                                kitchen.CancelOrder(order);
                             break;
                         case 0:
                             shouldExit = true;
