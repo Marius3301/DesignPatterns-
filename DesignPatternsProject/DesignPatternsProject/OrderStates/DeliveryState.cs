@@ -20,22 +20,9 @@ namespace DesignPatternsProject.OrderStates
 
         public override bool CancelOrder()
         {
-            string input = String.Empty;
-            while (!input.Equals("y") && !input.Equals("n"))
-            {
-                Console.WriteLine("Are you sure you want to cancel your order? (y/n)");
-                input = Console.ReadLine();
-            }
+            Console.WriteLine("Cannot cancel order while it is delivered");
 
-            if (input.Equals("y"))
-            {
-                Console.WriteLine("Your order has been cleared");
-                order.ClearOrder();
-                order.SetOrderState(EOrderStateType.EmptyOrderState);
-                return true;
-            }
-            else
-                return false;
+            return false;
         }
 
         public override void CheckOrderState()
